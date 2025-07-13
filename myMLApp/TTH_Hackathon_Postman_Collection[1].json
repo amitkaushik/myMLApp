@@ -1,0 +1,83 @@
+{
+    "info": {
+        "name": "TTH Hackathon API Collection",
+        "_postman_id": "hackathon-collection-001",
+        "description": "APIs for ingesting telemetry data, fetching risk status, and uploading doctor notes",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Ingest Telemetry Data",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"userId\": \"123\",\n    \"heartRate\": 105,\n    \"steps\": 3000,\n    \"hydrationLevel\": 65,\n    \"sleepHours\": 4\n}"
+                },
+                "url": {
+                    "raw": "{{base_url}}/api/telemetry",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "telemetry"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get User Risk Status",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{base_url}}/api/status/123",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "status",
+                        "123"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Upload Doctor Notes",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"userId\": \"123\",\n    \"doctorNote\": \"Please hydrate more and avoid strenuous activity today.\"\n}"
+                },
+                "url": {
+                    "raw": "{{base_url}}/api/upload",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "upload"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ]
+}
